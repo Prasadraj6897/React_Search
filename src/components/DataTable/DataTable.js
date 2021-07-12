@@ -40,6 +40,36 @@ const DataTable = (props) => {
 
         getData();
     }, []);
+
+    const commentsData = useMemo(() => {
+        let computedComments = comments;
+
+        if (search) {
+            computedComments = computedComments.filter(
+                comment =>
+                    comment.name.toLowerCase().includes(search.toLowerCase()) ||
+                    comment.email.toLowerCase().includes(search.toLowerCase())
+            );
+        }
+
+        setTotalItems(computedComments.length);
+
+        //Sorting comments
+        if (sorting.field) {
+            const reversed = sorting.order === "asc" ? 1 : -1;
+            computedComments = computedComments.sort(
+                (a, b) =>
+                    reversed * a[sorting.field].localeCompare(b[sorting.field])
+            );
+        }
+
+        //Current Page slice
+        return computedComments.slice(
+            (currentPage - 1) * ITEMS_PER_PAGE,
+            (currentPage - 1) * ITEMS_PER_PAGE + ITEMS_PER_PAGE
+        );
+    }, [comments, currentPage, search, sorting]);
+
     
   return(
     <>
@@ -50,7 +80,7 @@ const DataTable = (props) => {
                 <div className="row">
                     <div className="col-md-6">
                         <PaginationComponent
-                            total={500}
+                            total={totalItems}
                             itemsPerPage={ITEMS_PER_PAGE}
                             currentPage={currentPage}
                             onPageChange={page => setCurrentPage(page)}
@@ -73,7 +103,7 @@ const DataTable = (props) => {
                             setSorting({ field, order })
                         }
                     />
-                    {/* <tbody>
+                    <tbody>
                         {commentsData.map(comment => (
                             <tr>
                                 <th scope="row" key={comment.id}>
@@ -84,7 +114,7 @@ const DataTable = (props) => {
                                 <td>{comment.body}</td>
                             </tr>
                         ))}
-                    </tbody> */}
+                    </tbody>
                 </table>
             </div>
         </div>
