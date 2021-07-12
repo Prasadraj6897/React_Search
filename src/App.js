@@ -8,7 +8,7 @@ import './App.css'
 
 const App = (props) => {
   return(
-    <div id="content" class="active">
+    <div id="content" className="active">
         <DataTable />
     </div>
    )
