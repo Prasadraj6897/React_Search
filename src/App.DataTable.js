@@ -1,5 +1,5 @@
 import React from 'react'
-import Google_Maps from './components/Google_Maps'
+import DataTable from './components/DataTable/DataTable'
 import './App.css'
 /**
 * @author
@@ -9,7 +9,7 @@ import './App.css'
 const App = (props) => {
   return(
     <div id="content" className="active">
-        <Google_Maps />
+        <DataTable />
     </div>
    )
 
