@@ -1,15 +1,18 @@
 import React, { useEffect, useState, useMemo } from 'react'
 import useFullPageLoader from '../../hooks/useFullPageLoader';
 import Header from '../Headers'
+import PaginationComponent from '../PaginationComponent/index';
 
-/**
-* @author
-* @function DataTable
-**/
 
 const DataTable = (props) => {
     const [loader, showLoader, hideLoader] = useFullPageLoader();
     const [comments, setComments] = useState([]);
+
+    const [totalItems, setTotalItems] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
+    
+    const ITEMS_PER_PAGE = 50;
+
     useEffect(() => {
         const getData = () => {
             showLoader();
@@ -34,12 +37,12 @@ const DataTable = (props) => {
             <div className="col mb-3 col-12 text-center">
                 <div className="row">
                     <div className="col-md-6">
-                        {/* <Pagination
-                            total={totalItems}
+                        <PaginationComponent
+                            total={500}
                             itemsPerPage={ITEMS_PER_PAGE}
                             currentPage={currentPage}
                             onPageChange={page => setCurrentPage(page)}
-                        /> */}
+                        />
                     </div>
                     <div className="col-md-6 d-flex flex-row-reverse">
                         {/* <Search
