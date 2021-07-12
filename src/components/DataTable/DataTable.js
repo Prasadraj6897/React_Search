@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react'
 import useFullPageLoader from '../../hooks/useFullPageLoader';
 import Header from '../Headers'
 import PaginationComponent from '../PaginationComponent/index';
+import Search from '../SearchComponent/Search';
 
 
 const DataTable = (props) => {
@@ -10,6 +11,8 @@ const DataTable = (props) => {
 
     const [totalItems, setTotalItems] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
+
+    const [search, setSearch] = useState("");
     
     const ITEMS_PER_PAGE = 50;
 
@@ -45,12 +48,12 @@ const DataTable = (props) => {
                         />
                     </div>
                     <div className="col-md-6 d-flex flex-row-reverse">
-                        {/* <Search
+                        <Search
                             onSearch={value => {
                                 setSearch(value);
                                 setCurrentPage(1);
                             }}
-                        /> */}
+                        />
                     </div>
                 </div>
 
