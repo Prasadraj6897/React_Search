@@ -3,6 +3,7 @@ import useFullPageLoader from '../../hooks/useFullPageLoader';
 import Header from '../Headers'
 import PaginationComponent from '../PaginationComponent/index';
 import Search from '../SearchComponent/Search';
+import TableHeader from '../TableHeader';
 
 
 const DataTable = (props) => {
@@ -13,8 +14,16 @@ const DataTable = (props) => {
     const [currentPage, setCurrentPage] = useState(1);
 
     const [search, setSearch] = useState("");
-    
+    const [sorting, setSorting] = useState({ field: "", order: "" });
+
     const ITEMS_PER_PAGE = 50;
+
+    const headers = [
+        { name: "No#", field: "id", sortable: false },
+        { name: "Name", field: "name", sortable: true },
+        { name: "Email", field: "email", sortable: true },
+        { name: "Comment", field: "body", sortable: false }
+    ];
 
     useEffect(() => {
         const getData = () => {
@@ -57,14 +66,14 @@ const DataTable = (props) => {
                     </div>
                 </div>
 
-                {/* <table className="table table-striped">
+                <table className="table table-striped">
                     <TableHeader
                         headers={headers}
                         onSorting={(field, order) =>
                             setSorting({ field, order })
                         }
                     />
-                    <tbody>
+                    {/* <tbody>
                         {commentsData.map(comment => (
                             <tr>
                                 <th scope="row" key={comment.id}>
@@ -75,8 +84,8 @@ const DataTable = (props) => {
                                 <td>{comment.body}</td>
                             </tr>
                         ))}
-                    </tbody>
-                </table> */}
+                    </tbody> */}
+                </table>
             </div>
         </div>
         {loader}
