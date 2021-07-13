@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import SignUp from './components/SignUp'
+import ButtonLoading from './components/ButtonLoadingSpinner'
 
 /**
 * @author
@@ -10,7 +10,7 @@ import SignUp from './components/SignUp'
 const App = (props) => {
   return(
     <div id="content" className="active">
-        <SignUp />
+        <ButtonLoading />
     </div>
    )
 
