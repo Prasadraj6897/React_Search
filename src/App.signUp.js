@@ -1,7 +1,7 @@
 import React from 'react'
-
 import './App.css'
-import ReactFullPage from './components/ReactFullPage'
+import SignUp from './components/SignUp'
+
 /**
 * @author
 * @function App
@@ -10,7 +10,7 @@ import ReactFullPage from './components/ReactFullPage'
 const App = (props) => {
   return(
     <div id="content" className="active">
-        < ReactFullPage />
+        <SignUp />
     </div>
    )
 

@@ -1,0 +1,33 @@
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #5d5d5d;
+    font-weight: bold;
+    margin: 35px 0;
+}
+.separator::before,
+.separator::after {
+    content: "";
+    flex: 1;
+    border-bottom: 3px solid #c6bebe;
+}
+.separator::before {
+    margin-right: 0.25em;
+}
+.separator::after {
+    margin-left: 0.25em;
+}
+
+.card-hover {
+    opacity: 0.95;
+}
+.card-hover:hover {
+    opacity: 1;
+}
+.card-hover:hover .card-body {
+    background-color: #dddcdc;
+}
+.card-hover:hover .card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
