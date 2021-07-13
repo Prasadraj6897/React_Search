@@ -1,8 +1,7 @@
 import React from 'react'
 
 import './App.css'
-import Rating from './components/Rating'
-
+import BatteryStatus from './components/BatteryStatus'
 
 
 /**
@@ -13,7 +12,7 @@ import Rating from './components/Rating'
 const App = (props) => {
   return(
     <div id="content" className="active">
-        <Rating />
+        < BatteryStatus />
     </div>
    )
 
