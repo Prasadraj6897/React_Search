@@ -1,7 +1,6 @@
 import React from 'react'
+import Google_Maps from './components/Google_Maps'
 import './App.css'
-import ButtonLoading from './components/ButtonLoadingSpinner'
-
 /**
 * @author
 * @function App
@@ -10,7 +9,7 @@ import ButtonLoading from './components/ButtonLoadingSpinner'
 const App = (props) => {
   return(
     <div id="content" className="active">
-        <ButtonLoading />
+        <Google_Maps />
     </div>
    )
 
