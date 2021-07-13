@@ -4,6 +4,7 @@ import './app.sass';
 import './stylesheet/main.sass';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import "./dark.css";
 
 ReactDOM.render(
   <React.StrictMode>
